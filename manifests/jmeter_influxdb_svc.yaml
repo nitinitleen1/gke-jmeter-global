@@ -1,0 +1,18 @@
+# Use this service if your pod doesn't have access to the Nodes DNS resolver.
+# The service coupled with a endpoint can direct the request to an external IP where the InfluxDB is located.
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: jmeter-influxdb    # Don't use selector key as this service will use the endpoint to resolve requests.
+spec:
+  ports:
+    - port: 8083
+      name: http
+      targetPort: 8083
+    - port: 8086
+      name: api
+      targetPort: 8086
+    - port: 2003
+      name: graphite
+      targetPort: 2003

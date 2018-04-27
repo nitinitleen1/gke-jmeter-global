@@ -1,0 +1,19 @@
+# This is the slave service file. It exposes the required ports inside the cluster so that master can communicate with the slaves.
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: jmeter-slaves-svc
+  labels:
+    jmeter_mode: slave
+spec:
+  clusterIP: None
+  ports:
+    - port: 1099
+      name: first
+      targetPort: 1099
+    - port: 50000
+      name: second
+      targetPort: 50000
+  selector:
+    jmeter_mode: slave
