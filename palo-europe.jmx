@@ -131,7 +131,7 @@
               </elementProp>
               <elementProp name="influxdbUrl" elementType="Argument">
                 <stringProp name="Argument.name">influxdbUrl</stringProp>
-                <stringProp name="Argument.value">http://35.200.234.2:8086/write?db=jmeter_europe</stringProp>
+                <stringProp name="Argument.value">http://INFLUXDB_SERVER_IP:8086/write?db=jmeter_europe</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
               <elementProp name="application" elementType="Argument">
