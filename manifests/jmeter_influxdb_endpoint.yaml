@@ -1,0 +1,12 @@
+# This file must be used with a service. This exposes a endpoint that the coupled service resolves to when queried.
+# e.g. influxdb-service will direct request to IP address mentioned in subsets:addresses:ip
+
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: jmeter-influxdb
+subsets:
+- addresses:
+  - ip: 35.200.234.2 #Insert external IP of influxdb VM here
+  ports:
+  - port: 8086

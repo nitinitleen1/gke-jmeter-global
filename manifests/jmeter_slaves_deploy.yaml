@@ -1,0 +1,24 @@
+# This is the slave pods deployment file. It creates defined number of replicas/slaves.
+
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: jmeter-slaves
+  labels:
+    jmeter_mode: slave
+spec:
+  replicas: 3      # This must equal to number of slaves that you wish to use. Prefer to keep this value equal to the number of nodes in the cluster.
+  selector:
+    matchLabels:
+      jmeter_mode: slave
+  template:
+    metadata:
+      labels:
+        jmeter_mode: slave
+    spec:
+      containers:
+      - name: jmslave
+        image: kartik16/jmeter-slave
+        ports:
+        - containerPort: 1099
+        - containerPort: 50000
