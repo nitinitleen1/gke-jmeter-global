@@ -7,6 +7,6 @@ metadata:
   name: jmeter-influxdb
 subsets:
 - addresses:
-  - ip: 35.200.234.2 #Insert external IP of influxdb VM here
+  - ip: <INFLUXDB_SERVER_IP> #Insert external IP of influxdb VM here
   ports:
   - port: 8086
